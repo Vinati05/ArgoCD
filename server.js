@@ -17,7 +17,7 @@ app.get('/students', (req, res) => {
 app.post('/students', (req, res) => {
     const student = { id: students.length + 1, ...req.body };
     students.push(student);
-    res.status(201).ison(student);
+    res.status(201).json(student);
 });
 
 app.put('/students/:id', (req, res) => {

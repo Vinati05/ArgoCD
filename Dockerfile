@@ -1,7 +1,7 @@
-FROM node:20
+FROM python:3.12-slim
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3000
-CMD ["node", "server.js"]
+RUN pip install pytest flask
+COPY ..
+EXPOSE 5000
+CMD [“python”, “app.py”]
+
