@@ -1,21 +1,23 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-app
+  name: gitops-nginx
+
 spec:
-  replicas: 1     
+  replicas: 2
+
   selector:
     matchLabels:
-      app: devops-app
+      app: gitops-nginx
+
   template:
     metadata:
       labels:
-        app: devops-app
+        app: gitops-nginx
+
     spec:
       containers:
-        - name: devops-container
-          image: devops-web:latest
-          imagePullPolicy: IfNotPresent
+        - name: nginx
+          image: nginx:stable-alpine
           ports:
-            - containerPort: 3000
+            - containerPort: 80

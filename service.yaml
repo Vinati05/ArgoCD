@@ -1,11 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: devops-service
+  name: gitops-service
+
 spec:
   selector:
-    app: devops-app
+    app: gitops-nginx
+
   ports:
     - port: 80
-      targetPort: 3000
-  type: NodePort
+      targetPort: 80
+
+  type: ClusterIP
